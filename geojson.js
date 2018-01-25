@@ -19,8 +19,8 @@ var GeoJSON = function () {
         }
 	};
 	
-	this.addRaio = function (Raio) {
-		json.features.push(Raio.get());
+	this.addRadius = function (Radius) {
+		json.features.push(Radius.get());
 	};
 	
 	this.generate = function () {
@@ -47,7 +47,7 @@ var Point = function (latlng) {
 	};
 };
 
-var Raio = function (latlng, radiusKm, points) {
+var Radius = function (latlng, radiusKm, points) {
 	'use strict';
     if (points === undefined) {
         points = 128;
