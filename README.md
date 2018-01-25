@@ -1,7 +1,5 @@
-<h1 style="text-align: center;" markdown="1">Maps.js</h1>
-<p align="center">
-    *Javascript framework for maps API*
-</p>
+# Maps.js
+*Javascript framework for maps API*
 
 ## How to use maps.js?
 
@@ -42,3 +40,8 @@ Alternatives:
         map.run();
 </script>
 ```
+---
+
+## Supporters:
+* [UAPI](https://uapi.com.br/)
+* [Patrick Kaminski](https://patrickkaminski.com/)
