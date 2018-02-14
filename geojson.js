@@ -54,8 +54,8 @@ var Radius = function (latlng, radiusKm, points) {
     }
 
     this.coords = {
-        latitude:  latlng[1],
-        longitude: latlng[0]
+        longitude: latlng[0],
+        latitude:  latlng[1]
     };
 
     var km = radiusKm,
