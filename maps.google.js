@@ -11,10 +11,10 @@ var GoogleMaps = function (container) {
         callback	= 'map.start',
 		key         = '',
 		clientId    = '';
-	this.types		= {hibrido: 'hybrid',
-                       estradas: 'roadmap',
-                       satelite: 'satellite',
-                       relevo: 'terrain'};
+	this.types		= {hybrid: 'hybrid',
+                       road: 'roadmap',
+                       satellite: 'satellite',
+                       terrain: 'terrain'};
 
 	this.run = function () {
 		var script = 'https://maps.google.com/maps/api/js?v=' + version + '&callback=' + callback + '&language=pt_br&libraries=geometry';
@@ -54,16 +54,18 @@ var GoogleMaps = function (container) {
             info = item.f;
             type = item.getGeometry().getType();
             if (type === 'Point') {
-                if (info.text === null) {
+                if ((info.text === null) || (info.text === '')) {
                     info.text = info.title;
-                } else if (info.title === null) {
+                } else if ((info.title === null) || (info.title === '')) {
                     info.title = info.text.replace(/(<([^>]+)>)/ig, '');
                 }
                 this.addOnClick(info);
             }
-            this.map.data.setStyle(setStyle(item));
 		}
         
+        this.map.data.setStyle(function (feature) {
+            return {icon: feature.getProperty('icon')};
+        });
 	
         this.map.data.addListener('click', function (event) {
             var type = event.feature.getGeometry().getType();
